@@ -12,4 +12,6 @@ public interface SatelliteServiceDeclarations {
     Optional<Satellites> getSatelliteById(int id);
 
     Satellites getSatelliteByAgencyId(int id);
+
+    void insertSatelliteIntoDatabse(Satellites satellite);
 }

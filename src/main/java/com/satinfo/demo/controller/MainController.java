@@ -4,10 +4,7 @@ import com.satinfo.demo.entity.SatelliteDataWithJoin;
 import com.satinfo.demo.entity.Satellites;
 import com.satinfo.demo.service.SatelliteServiceImplementations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,4 +33,10 @@ public class MainController {
     public Satellites getSatelliteByAgencyID(@PathVariable("agencyID") int id) {
         return satelliteService.getSatelliteByAgencyId(id);
     }
+
+    @PostMapping
+    public void insertSatellite(@RequestBody Satellites satellite) {
+        satelliteService.insertSatelliteIntoDatabse(satellite);
+    }
+
 }

@@ -37,4 +37,9 @@ public class SatelliteServiceImplementations implements SatelliteServiceDeclarat
         return satelliteRepository.findByAgencyId(id);
     }
 
+    @Override
+    public void insertSatelliteIntoDatabse(Satellites satellite) {
+        satelliteRepository.save(satellite);
+    }
+
 }

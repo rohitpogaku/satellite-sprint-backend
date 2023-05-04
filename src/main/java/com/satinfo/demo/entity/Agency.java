@@ -1,6 +1,7 @@
 package com.satinfo.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -19,6 +20,7 @@ public class Agency {
     @Column(name = "country")
     private String country;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JsonBackReference
     @OneToMany(mappedBy = "agency", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Satellites> satellites;

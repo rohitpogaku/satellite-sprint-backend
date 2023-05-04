@@ -2,6 +2,7 @@ package com.satinfo.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -30,37 +31,37 @@ public class Satellites {
     @Column(name = "launch_vehicle")
     private String launchVehicle;
 
-    @JsonIgnore
     @Column(name = "orbit_type_id")
     private int orbitTypeId;
 
-    @JsonIgnore
     @Column(name = "application_id")
     private Integer applicationId;
 
-    @JsonIgnore
     @Column(name = "manufacturer_id")
     private Integer manufacturerId;
 
-    @JsonIgnore
     @Column(name = "agency_id")
     private Integer agencyId;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JsonManagedReference
     @ManyToOne(targetEntity = OrbitType.class)
     @JoinColumn(name = "orbit_type_id", insertable = false, updatable = false)
     private OrbitType orbitType;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JsonManagedReference
     @ManyToOne(targetEntity = SatelliteApplication.class)
     @JoinColumn(name = "application_id", insertable = false, updatable = false)
     private SatelliteApplication satelliteApplication;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JsonManagedReference
     @ManyToOne(targetEntity = Manufacturer.class)
     @JoinColumn(name = "manufacturer_id", insertable = false, updatable = false)
     private Manufacturer manufacturer;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JsonManagedReference
     @ManyToOne(targetEntity = Agency.class)
     @JoinColumn(name = "agency_id", insertable = false, updatable = false)
