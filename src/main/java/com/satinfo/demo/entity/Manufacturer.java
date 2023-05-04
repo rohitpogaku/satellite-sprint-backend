@@ -1,7 +1,6 @@
 package com.satinfo.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -12,13 +11,14 @@ public class Manufacturer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "manufacturer_name", unique = true)
-    private String ManufacturerName;
+    @Column(name = "name", unique = true)
+    private String name;
 
-    @Column(name = "manufacturer_country")
-    private String ManufacturerCountry;
+    @Column(name = "country")
+    private String country;
 
     @JsonBackReference
     @OneToMany(mappedBy = "manufacturer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -27,9 +27,9 @@ public class Manufacturer {
     public Manufacturer() {
     }
 
-    public Manufacturer(String manufacturerName, String manufacturerCountry, Set<Satellites> satellites) {
-        ManufacturerName = manufacturerName;
-        ManufacturerCountry = manufacturerCountry;
+    public Manufacturer(String name, String country, Set<Satellites> satellites) {
+        this.name = name;
+        this.country = country;
         this.satellites = satellites;
     }
 
@@ -41,20 +41,20 @@ public class Manufacturer {
         this.id = id;
     }
 
-    public String getManufacturerName() {
-        return ManufacturerName;
+    public String getName() {
+        return name;
     }
 
-    public void setManufacturerName(String manufacturerName) {
-        ManufacturerName = manufacturerName;
+    public void setName(String manufacturerName) {
+        this.name = manufacturerName;
     }
 
-    public String getManufacturerCountry() {
-        return ManufacturerCountry;
+    public String getCountry() {
+        return country;
     }
 
-    public void setManufacturerCountry(String manufacturerCountry) {
-        ManufacturerCountry = manufacturerCountry;
+    public void setCountry(String manufacturerCountry) {
+        this.country = manufacturerCountry;
     }
 
     public Set<Satellites> getSatellites() {
@@ -69,8 +69,8 @@ public class Manufacturer {
     public String toString() {
         return "Manufacturer [" +
                 "id=" + id +
-                ", ManufacturerName='" + ManufacturerName + '\'' +
-                ", ManufacturerCountry='" + ManufacturerCountry + '\'' +
+                ", ManufacturerName='" + name + '\'' +
+                ", ManufacturerCountry='" + country + '\'' +
                 ", satellites=" + satellites +
                 ']';
     }

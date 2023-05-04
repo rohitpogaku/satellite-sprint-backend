@@ -1,7 +1,6 @@
 package com.satinfo.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -11,14 +10,14 @@ import java.util.Set;
 public class Agency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "agency_id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "agency_name", unique = true)
-    private String agencyName;
+    @Column(name = "name", unique = true)
+    private String name;
 
     @Column(name = "country")
-    private String agencyCountry;
+    private String country;
 
     @JsonBackReference
     @OneToMany(mappedBy = "agency", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -27,9 +26,9 @@ public class Agency {
     public Agency() {
     }
 
-    public Agency(String agencyName, String agencyCountry, Set<Satellites> satellites) {
-        this.agencyName = agencyName;
-        this.agencyCountry = agencyCountry;
+    public Agency(String name, String country, Set<Satellites> satellites) {
+        this.name = name;
+        this.country = country;
         this.satellites = satellites;
     }
 
@@ -41,20 +40,20 @@ public class Agency {
         this.id = id;
     }
 
-    public String getAgencyName() {
-        return agencyName;
+    public String getName() {
+        return name;
     }
 
-    public void setAgencyName(String agencyName) {
-        this.agencyName = agencyName;
+    public void setName(String agencyName) {
+        this.name = agencyName;
     }
 
-    public String getAgencyCountry() {
-        return agencyCountry;
+    public String getCountry() {
+        return country;
     }
 
-    public void setAgencyCountry(String agencyCountry) {
-        this.agencyCountry = agencyCountry;
+    public void setCountry(String agencyCountry) {
+        this.country = agencyCountry;
     }
 
     public Set<Satellites> getSatellites() {
@@ -69,8 +68,8 @@ public class Agency {
     public String toString() {
         return "Agency [" +
                 "id=" + id +
-                ", agencyName='" + agencyName + '\'' +
-                ", agencyCountry='" + agencyCountry + '\'' +
+                ", agencyName='" + name + '\'' +
+                ", agencyCountry='" + country + '\'' +
                 ", satellites=" + satellites +
                 ']';
     }

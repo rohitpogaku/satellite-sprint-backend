@@ -1,7 +1,6 @@
 package com.satinfo.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -12,7 +11,8 @@ public class OrbitType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "orbit", unique = true)
     private String orbit;

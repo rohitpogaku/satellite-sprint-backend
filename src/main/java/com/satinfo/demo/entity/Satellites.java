@@ -1,6 +1,5 @@
 package com.satinfo.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -14,7 +13,7 @@ public class Satellites {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "satellite_id")
-    private int satelliteId;
+    private Integer satelliteId;
 
     @Column(name = "satellite_name", unique = true)
     private String satelliteName;
@@ -37,15 +36,15 @@ public class Satellites {
 
     @JsonIgnore
     @Column(name = "application_id")
-    private int applicationId;
+    private Integer applicationId;
 
     @JsonIgnore
     @Column(name = "manufacturer_id")
-    private int manufacturerId;
+    private Integer manufacturerId;
 
     @JsonIgnore
     @Column(name = "agency_id")
-    private int agencyId;
+    private Integer agencyId;
 
     @JsonManagedReference
     @ManyToOne(targetEntity = OrbitType.class)

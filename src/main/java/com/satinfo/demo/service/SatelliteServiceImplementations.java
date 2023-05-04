@@ -1,5 +1,6 @@
 package com.satinfo.demo.service;
 
+import com.satinfo.demo.entity.SatelliteDataWithJoin;
 import com.satinfo.demo.entity.Satellites;
 import com.satinfo.demo.persistance.SatelliteRepository;
 import jakarta.transaction.Transactional;
@@ -10,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SatelliteServiceImplementations implements SatelliteServiceDeclarations{
-    private SatelliteRepository satelliteRepository;
+public class SatelliteServiceImplementations implements SatelliteServiceDeclarations {
+    private final SatelliteRepository satelliteRepository;
 
     @Autowired
     public SatelliteServiceImplementations(SatelliteRepository satelliteRepository) {
@@ -20,8 +21,8 @@ public class SatelliteServiceImplementations implements SatelliteServiceDeclarat
 
     @Override
     @Transactional
-    public List<Satellites> getAllSatellites() {
-        return satelliteRepository.findAll();
+    public List<SatelliteDataWithJoin> getAllSatellites() {
+        return satelliteRepository.getAllSatellites();
     }
 
     @Override
@@ -29,4 +30,11 @@ public class SatelliteServiceImplementations implements SatelliteServiceDeclarat
     public Optional<Satellites> getSatelliteById(int id) {
         return satelliteRepository.findById(id);
     }
+
+    @Override
+    @Transactional
+    public Satellites getSatelliteByAgencyId(int id) {
+        return satelliteRepository.findByAgencyId(id);
+    }
+
 }
