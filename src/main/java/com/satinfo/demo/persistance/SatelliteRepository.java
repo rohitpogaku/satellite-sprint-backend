@@ -37,5 +37,6 @@ public interface SatelliteRepository extends JpaRepository<Satellites, Integer> 
     List<SatelliteDataWithJoin> getAllSatellites();
 
     Satellites findByAgencyId(int id);
-    
+
+
 }

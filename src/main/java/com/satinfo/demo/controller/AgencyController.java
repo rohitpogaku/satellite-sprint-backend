@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/agencies")
+@RequestMapping("api/v1/agencies")
 public class AgencyController {
     private final AgencyServiceImplementations agencyServiceImplementations;
 
@@ -28,7 +28,7 @@ public class AgencyController {
     }
 
     @GetMapping("/name")
-    public int getAgencyIdByName(@RequestParam(required = false) String name) {
+    public int getAgencyIdByName(@RequestParam(required = false, defaultValue = "isro") String name) {
         return agencyServiceImplementations.getAgencyIdByName(name);
     }
 

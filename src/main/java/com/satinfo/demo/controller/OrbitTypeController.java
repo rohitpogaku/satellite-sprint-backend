@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orbits")
+@RequestMapping("api/v1/orbits")
 public class OrbitTypeController {
     private final OrbitTypeServiceImplementations orbitTypeServiceImplementations;
 
