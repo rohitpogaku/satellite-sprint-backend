@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/agencies")
+@RequestMapping("/api/v1/agencies")
 public class AgencyController {
     private final AgencyServiceImplementations agencyServiceImplementations;
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/manufacturer")
+@RequestMapping("/api/v1/manufacturer")
 public class ManufacturerController {
     private final ManufacturerServiceImplementations manufacturerServiceImplementations;
 

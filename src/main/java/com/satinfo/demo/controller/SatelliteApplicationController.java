@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/applications")
+@RequestMapping("/api/v1/applications")
 public class SatelliteApplicationController {
     private final SatelliteApplicationServiceImplementations satelliteApplicationServiceImplementations;
 

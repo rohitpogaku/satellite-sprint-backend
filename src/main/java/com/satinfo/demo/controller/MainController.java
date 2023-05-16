@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/satellites")
+@RequestMapping("/api/v1/satellites")
 public class MainController {
     private final SatelliteServiceImplementations satelliteService;
 
