@@ -37,7 +37,7 @@ public class MainController {
 
     @PostMapping
     public void insertSatellite(@RequestBody Satellites satellite) {
-        satelliteService.insertSatelliteIntoDatabse(satellite);
+        satelliteService.insertSatelliteIntoDatabase(satellite);
     }
 
 }

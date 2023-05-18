@@ -1,6 +1,7 @@
 package com.satinfo.demo.entity;
 
 import java.sql.Date;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class SatelliteDataWithJoin {

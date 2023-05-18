@@ -1,11 +1,11 @@
 package com.satinfo.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 @Entity
 @Table(name = "satellites")
@@ -133,6 +133,7 @@ public class Satellites {
     public void setLaunchVehicle(String launchVehicle) {
         this.launchVehicle = launchVehicle;
     }
+
 
     public int getOrbitTypeId() {
         return orbitTypeId;
